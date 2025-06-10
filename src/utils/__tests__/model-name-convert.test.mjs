@@ -8,7 +8,6 @@ import {
   isClaude3,
   modelNameToValue,
   getModelValue,
-  modelNameToApiMode, // Restored
   getApiModesFromConfig,
   getApiModesStringArrayFromConfig,
   isApiModeSelected,
@@ -309,7 +308,7 @@ describe('model-name-convert', () => {
     test('should convert a model whose presetPart is a group key', async () => {
       await jest.isolateModulesAsync(async () => {
         jest.doMock('../../config/index.mjs', () => ({ Models: actualMockModels, ModelGroups: actualMockModelGroups, ModelMode: actualMockModelMode, AlwaysCustomGroups: actualMockAlwaysCustomGroups }));
-        const { modelNameToApiMode } = await import('../model-name-convert.mjs'); // Use destructured import
+        const { modelNameToApiMode } = await import('../model-name-convert.mjs');
         const apiModeOpenAi = modelNameToApiMode('openAi-custom');
         expect(apiModeOpenAi).toEqual({
           groupName: 'openAi', itemName: 'openAi', isCustom: true, customName: 'custom', customUrl: '', apiKey: '', active: true,
@@ -321,7 +320,7 @@ describe('model-name-convert', () => {
         const localMockGroups = JSON.parse(JSON.stringify(actualMockModelGroups));
         localMockGroups.testGroup = { desc: 'Test Group', value: ['gpt4'] };
         jest.doMock('../../config/index.mjs', () => ({ Models: actualMockModels, ModelGroups: localMockGroups, ModelMode: actualMockModelMode, AlwaysCustomGroups: actualMockAlwaysCustomGroups }));
-        const { modelNameToApiMode } = await import('../model-name-convert.mjs'); // Use destructured import
+        const { modelNameToApiMode } = await import('../model-name-convert.mjs');
         const apiModeGpt4 = modelNameToApiMode('gpt4');
         expect(apiModeGpt4).toEqual({
           groupName: 'testGroup', itemName: 'gpt4', isCustom: false, customName: '', customUrl: '', apiKey: '', active: true,
@@ -331,14 +330,14 @@ describe('model-name-convert', () => {
     test('should return undefined for base models whose presetPart does not resolve to a group', async () => {
       await jest.isolateModulesAsync(async () => {
         jest.doMock('../../config/index.mjs', () => ({ Models: actualMockModels, ModelGroups: actualMockModelGroups, ModelMode: actualMockModelMode, AlwaysCustomGroups: actualMockAlwaysCustomGroups }));
-        const { modelNameToApiMode } = await import('../model-name-convert.mjs'); // Use destructured import
+        const { modelNameToApiMode } = await import('../model-name-convert.mjs');
         expect(modelNameToApiMode('gpt-4')).toBeUndefined();
       });
     });
     test('should convert a custom model name (e.g., group-custompart in AlwaysCustomGroups)', async () => {
       await jest.isolateModulesAsync(async () => {
         jest.doMock('../../config/index.mjs', () => ({ Models: actualMockModels, ModelGroups: actualMockModelGroups, ModelMode: actualMockModelMode, AlwaysCustomGroups: actualMockAlwaysCustomGroups }));
-        const { modelNameToApiMode } = await import('../model-name-convert.mjs'); // Use destructured import
+        const { modelNameToApiMode } = await import('../model-name-convert.mjs');
         const apiMode = modelNameToApiMode('azure-myCustomAzure');
         expect(apiMode).toEqual({
           groupName: 'azure', itemName: 'azure', isCustom: true, customName: 'myCustomAzure', customUrl: '', apiKey: '', active: true,
@@ -348,7 +347,7 @@ describe('model-name-convert', () => {
     test('should return undefined for a model name not found in any group', async () => {
       await jest.isolateModulesAsync(async () => {
         jest.doMock('../../config/index.mjs', () => ({ Models: actualMockModels, ModelGroups: actualMockModelGroups, ModelMode: actualMockModelMode, AlwaysCustomGroups: actualMockAlwaysCustomGroups }));
-        const { modelNameToApiMode } = await import('../model-name-convert.mjs'); // Use destructured import
+        const { modelNameToApiMode } = await import('../model-name-convert.mjs');
         expect(modelNameToApiMode('unknownModel-custom')).toBeUndefined();
       });
     });
@@ -380,21 +379,21 @@ describe('model-name-convert', () => {
         else if (!localMockModelGroups.azure.value) localMockModelGroups.azure.value = [];
         localMockModelGroups.azure.value.push('azure');
         jest.doMock('../../config/index.mjs', () => ({ Models: actualMockModels, ModelGroups: localMockModelGroups, ModelMode: actualMockModelMode, AlwaysCustomGroups: actualMockAlwaysCustomGroups, }));
-        const { isInApiModeGroup } = await import('../model-name-convert.mjs'); // Use destructured import
+        const { isInApiModeGroup } = await import('../model-name-convert.mjs');
         expect(isInApiModeGroup(localMockModelGroups.azure.value, configWithResolvableModelName)).toBe(true);
       });
     });
     test('should return false if configOrSession (modelName) is not in the specified group', async () => {
       await jest.isolateModulesAsync(async () => {
         jest.doMock('../../config/index.mjs', () => ({ Models: actualMockModels, ModelGroups: actualMockModelGroups, ModelMode: actualMockModelMode, AlwaysCustomGroups: actualMockAlwaysCustomGroups }));
-        const { isInApiModeGroup } = await import('../model-name-convert.mjs'); // Use destructured import
+        const { isInApiModeGroup } = await import('../model-name-convert.mjs');
         expect(isInApiModeGroup(actualMockModelGroups.openAi.value, configWithResolvableModelName)).toBe(false);
       });
     });
     test('should return false if model in configOrSession does not belong to any group', async () => {
       await jest.isolateModulesAsync(async () => {
         jest.doMock('../../config/index.mjs', () => ({ Models: actualMockModels, ModelGroups: actualMockModelGroups, ModelMode: actualMockModelMode, AlwaysCustomGroups: actualMockAlwaysCustomGroups }));
-        const { isInApiModeGroup } = await import('../model-name-convert.mjs'); // Use destructured import
+        const { isInApiModeGroup } = await import('../model-name-convert.mjs');
         expect(isInApiModeGroup(actualMockModelGroups.anthropic.value, configWithModelName)).toBe(false);
       });
     });
@@ -531,7 +530,7 @@ describe('model-name-convert', () => {
             ModelMode: JSON.parse(JSON.stringify(actualMockModelMode)),
             AlwaysCustomGroups: JSON.parse(JSON.stringify(actualMockAlwaysCustomGroups)),
           }));
-          const { isUsingModelName } = await import('../model-name-convert.mjs'); // Use destructured import
+          const { isUsingModelName } = await import('../model-name-convert.mjs');
           expect(isUsingModelName('gpt', configWithGptCustomVariant)).toBe(true);
         });
       });
@@ -546,7 +545,7 @@ describe('model-name-convert', () => {
             ModelMode: JSON.parse(JSON.stringify(actualMockModelMode)),
             AlwaysCustomGroups: JSON.parse(JSON.stringify(actualMockAlwaysCustomGroups)),
           }));
-          const { isUsingModelName } = await import('../model-name-convert.mjs'); // Use destructured import
+          const { isUsingModelName } = await import('../model-name-convert.mjs');
           expect(isUsingModelName('gpt-3.5', configWithGptCustomVariant)).toBe(true);
         });
       });
@@ -564,7 +563,7 @@ describe('model-name-convert', () => {
             ModelMode: JSON.parse(JSON.stringify(actualMockModelMode)),
             AlwaysCustomGroups: JSON.parse(JSON.stringify(actualMockAlwaysCustomGroups)),
           }));
-          const { isUsingModelName } = await import('../model-name-convert.mjs'); // Use destructured import
+          const { isUsingModelName } = await import('../model-name-convert.mjs');
           expect(isUsingModelName('gpt-custom-variant', configWithGptCustomVariant)).toBe(true);
           expect(isUsingModelName('gpt', configWithGptCustomVariant)).toBe(false);
         });
@@ -580,7 +579,7 @@ describe('model-name-convert', () => {
             ModelMode: JSON.parse(JSON.stringify(actualMockModelMode)),
             AlwaysCustomGroups: JSON.parse(JSON.stringify(actualMockAlwaysCustomGroups)),
           }));
-          const { isUsingModelName } = await import('../model-name-convert.mjs'); // Use destructured import
+          const { isUsingModelName } = await import('../model-name-convert.mjs');
           const configWithBingFast = { modelName: 'bingFree4-fast' };
           expect(isUsingModelName('bingFree4', configWithBingFast)).toBe(true);
         });
