@@ -33,7 +33,7 @@ function Footer({ currentVersion, latestVersion }) {
           <>
             ({`${t('Latest')}: `}
             <a
-              href={'https://github.com/josStorer/chatGPTBox/releases/tag/v' + latestVersion}
+              href={'https://github.com/ChatGPTBox-dev/chatGPTBox/releases/tag/v' + latestVersion}
               target="_blank"
               rel="nofollow noopener noreferrer"
             >
@@ -45,7 +45,7 @@ function Footer({ currentVersion, latestVersion }) {
       </div>
       <div>
         <a
-          href="https://github.com/josStorer/chatGPTBox"
+          href="https://github.com/ChatGPTBox-dev/chatGPTBox"
           target="_blank"
           rel="nofollow noopener noreferrer"
         >

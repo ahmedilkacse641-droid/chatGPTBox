@@ -24,21 +24,21 @@ English &nbsp;&nbsp;|&nbsp;&nbsp; [Indonesia](README_IN.md) &nbsp;&nbsp;|&nbsp;&
 [![Android][Android-image]][Android-url]
 [![Github][Github-image]][Github-url]
 
-[Guide](https://github.com/josStorer/chatGPTBox/wiki/Guide) &nbsp;&nbsp;|&nbsp;&nbsp; [Preview](#Preview) &nbsp;&nbsp;|&nbsp;&nbsp; [Development&Contributing][dev-url] &nbsp;&nbsp;|&nbsp;&nbsp; [Video Demonstration](https://www.youtube.com/watch?v=E1smDxJvTRs) &nbsp;&nbsp;|&nbsp;&nbsp; [Credit](#Credit)
+[Guide](https://github.com/ChatGPTBox-dev/chatGPTBox/wiki/Guide) &nbsp;&nbsp;|&nbsp;&nbsp; [Preview](#Preview) &nbsp;&nbsp;|&nbsp;&nbsp; [Development&Contributing][dev-url] &nbsp;&nbsp;|&nbsp;&nbsp; [Video Demonstration](https://www.youtube.com/watch?v=E1smDxJvTRs) &nbsp;&nbsp;|&nbsp;&nbsp; [Credit](#Credit)
 
-[dev-url]: https://github.com/josStorer/chatGPTBox/wiki/Development&Contributing
+[dev-url]: https://github.com/ChatGPTBox-dev/chatGPTBox/wiki/Development&Contributing
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg
 
-[license-url]: https://github.com/josStorer/chatGPTBox/blob/master/LICENSE
+[license-url]: https://github.com/ChatGPTBox-dev/chatGPTBox/blob/master/LICENSE
 
-[release-image]: https://img.shields.io/github/release/josStorer/chatGPTBox.svg
+[release-image]: https://img.shields.io/github/release/ChatGPTBox-dev/chatGPTBox.svg
 
-[release-url]: https://github.com/josStorer/chatGPTBox/releases/latest
+[release-url]: https://github.com/ChatGPTBox-dev/chatGPTBox/releases/latest
 
-[verify-image]: https://github.com/josStorer/chatGPTBox/workflows/verify-configs/badge.svg
+[verify-image]: https://github.com/ChatGPTBox-dev/chatGPTBox/workflows/verify-configs/badge.svg
 
-[verify-url]: https://github.com/josStorer/chatGPTBox/actions/workflows/verify-configs.yml
+[verify-url]: https://github.com/ChatGPTBox-dev/chatGPTBox/actions/workflows/verify-configs.yml
 
 [Chrome-image]: https://img.shields.io/badge/-Chrome-brightgreen?logo=google-chrome&logoColor=white
 
@@ -58,11 +58,11 @@ English &nbsp;&nbsp;|&nbsp;&nbsp; [Indonesia](README_IN.md) &nbsp;&nbsp;|&nbsp;&
 
 [Android-image]: https://img.shields.io/badge/-Android-brightgreen?logo=android&logoColor=white
 
-[Android-url]: https://github.com/josStorer/chatGPTBox/wiki/Install#install-to-android
+[Android-url]: https://github.com/ChatGPTBox-dev/chatGPTBox/wiki/Install#install-to-android
 
 [Github-image]: https://img.shields.io/badge/-Github-black?logo=github&logoColor=white
 
-[Github-url]: https://github.com/josStorer/chatGPTBox/wiki/Install
+[Github-url]: https://github.com/ChatGPTBox-dev/chatGPTBox/wiki/Install
 
 </div>
 
@@ -74,7 +74,7 @@ English &nbsp;&nbsp;|&nbsp;&nbsp; [Indonesia](README_IN.md) &nbsp;&nbsp;|&nbsp;&
 
 - You can use projects like https://github.com/BerriAI/litellm / https://github.com/songquanpeng/one-api to convert LLM APIs into OpenAI format and use them in conjunction with ChatGPTBox's `Custom Model` mode
 
-- You can also use [Ollama](https://github.com/josStorer/chatGPTBox/issues/616#issuecomment-1975186467) / https://openrouter.ai/docs#models with ChatGPTBox's `Custom Model` mode
+- You can also use [Ollama](https://github.com/ChatGPTBox-dev/chatGPTBox/issues/616#issuecomment-1975186467) / https://openrouter.ai/docs#models with ChatGPTBox's `Custom Model` mode
 
 ## ✨ Features
 
