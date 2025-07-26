@@ -165,5 +165,6 @@
   "ChatGLM (GLM-4-0520, 128k)": "ChatGLM (GLM4-0520, 最智能, 128k)",
   "ChatGLM (Emohaa)": "ChatGLM (Emohaa, 专业情绪咨询)",
   "ChatGLM (CharGLM-3)": "ChatGLM (CharGLM-3, 角色扮演)",
-  "Crop Text to ensure the input tokens do not exceed the model's limit": "裁剪文本以确保输入token不超过模型限制"
+  "Crop Text to ensure the input tokens do not exceed the model's limit": "裁剪文本以确保输入token不超过模型限制",
+  "Thinking Content": "思考内容"
 }

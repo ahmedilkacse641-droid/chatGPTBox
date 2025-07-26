@@ -301,7 +301,6 @@ export function GeneralPart({ config, updateConfig, setTabIndex }) {
           {isUsingChatGLMApiModel(config) && (
             <input
               type="password"
-              style="width: 50%;"
               value={config.chatglmApiKey}
               placeholder={t('ChatGLM API Key')}
               onChange={(e) => {

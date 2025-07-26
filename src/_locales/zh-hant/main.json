@@ -160,5 +160,6 @@
   "Type": "類型",
   "Mode": "模式",
   "Custom": "自訂",
-  "Crop Text to ensure the input tokens do not exceed the model's limit": "裁剪文本以確保輸入token不超過模型限制"
+  "Crop Text to ensure the input tokens do not exceed the model's limit": "裁剪文本以確保輸入token不超過模型限制",
+  "Thinking Content": "思考內容"
 }

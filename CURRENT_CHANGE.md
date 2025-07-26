@@ -1,38 +1,45 @@
-# Changes
+Long time no see — ChatGPTBox is back! Nearly every feature that had broken due to page updates or API changes has been fixed, and we’ve also introduced some new features.
 
-this is a patch for v2.5.7, including some minor fixes and improvements
+Over the past year the LLM landscape has shifted dramatically, and the key players are now fairly clear. Regarding ChatGPTBox’s free web APIs, some providers are still actively trying to block reverse-engineering, while others remain open. At the moment, ChatGPT, Claude, and Kimi are still open, so we’ll keep maintaining the related web free APIs. The web APIs for Bing and Gemini, however, will no longer be supported; if you need some reverse-engineering web apis, please check out the work of this organization: https://github.com/LLM-Red-Team.
 
-## Features
-- unlimited custom API Modes (#731, #717, #712, #659, #647)
+As OpenRouter has consistently offered stable and affordable APIs, we’ve now added direct option support for it — no need to rely on custom mode and manually fill in the API URL.
 
-<img src="https://github.com/user-attachments/assets/6419a024-b8e2-48c4-8b64-fc4fe705ce36" width="256"/>
+During this period, countless AI projects have exploded onto the scene and just as many have quietly disappeared. I’ve been tied up with various non-public projects and have neglected ChatGPTBox, while also pondering how to keep it vibrant.
 
-<img src="https://github.com/user-attachments/assets/f7602e33-7772-41d3-81a6-ccb1dccaf00f" width="256"/>
+I have to admit that when ChatGPTBox was first created, many decisions and code designs were rather hasty and not very modern. Without much forethought, I made choices that now make it inconvenient to add new features.
 
-- Option to always display floating window, disable sidebar for all site adapters (#747, #753) f50249e7 226fb108 b96ba7c0
+I’m currently rewriting ChatGPTBox from scratch using the WXT framework while ensuring full backward compatibility with old data. This will take a considerable amount of time, but I’ll keep pushing forward. I also have some commercialization ideas for ChatGPTBox; of course only server-related features would be charged, while all web APIs and user Api Key features will remain completely free, and the project will stay open-source under the MIT license.
 
-![image](https://github.com/user-attachments/assets/6975496b-3700-4de5-ae31-6d35ce6e9e80)
+As I’m simultaneously in charge of several other non-public projects, I can’t promise when the rewrite will be finished, but I’ll keep making steady progress. In the meantime, I’ll continue to fix major issues in the current version of ChatGPTBox.
 
-- Add Ollama native API to support keep alive parameters (#748) 6877a1b7 48817006
+## Changes
 
-<img src="https://github.com/user-attachments/assets/f9647f03-da17-447b-988a-ec3b1db66fe6" width="256"/>
+### Features
 
-- Option to allow ESC to close all floating windows (#750)
-- allow exporting and importing all data (#740)
+- add support for openRouter, AI/ML and DeepSeek api (previously required filling in the URL via the custom model option)
+- a new option has been added to the general settings to disable cropText, ensuring the full input tokens are always passed. This can improve summarization on sites like YouTube, but note that you should only disable cropText when using a model with a sufficiently long context.
+- <img width="300" src="https://github.com/user-attachments/assets/455931d6-8a73-4cdf-88a6-d4dcff53ecd7"/>
+- reasoning model renderer support
+- <img width="420" src="https://github.com/user-attachments/assets/1951cc7e-d12a-4cc2-8f7f-826603bbf884" />
 
-<img src="https://github.com/user-attachments/assets/f26ff58e-5371-47fd-bf20-1c9afa0cfb63" width="256"/>
+### Improvements
+- add a range of new models recently made available by various AI providers
+- significantly improve the prompt templates for built-in tools. Great thanks to @PeterDaveHello 
+- update and enhance API clients (including Claude, ChatGLM, and Kimi.Moonshot) that had become unavailable or unstable due to recent policy changes and adjustments by AI providers
+- increase the default input and response limits, as current LLMs generally support longer contexts
+- improve kimi.moonshot support and add more available models like k2, kimi-latest, k1.5, k1.5-thinking
+- improve google search sidebar
 
-## Improvements
-- for simplified chinese users, use Kimi.Moonshot Web for free by default, while other users default to using Claude.ai for free and a better user experience
-- improve chatglm support (#696, #464)
-- improve style conflicts (#724, #378)
-- improve user experience for claude.ai and kimi.moonshot.cn
+### Fixes
+- fix the issue where YouTube subtitles could not be fetched and the video summarization feature became unavailable due to the recent introduction of the "pot" parameter by YouTube
+- avoid crash when readability parser returns null (#865) @PeterDaveHello 
+- fix the issue where kimi web functionality became unstable due to changes in the page and domain
+- fix an issue where the selected model might be not displayed correctly due to inconsistent key ordering in JSON.stringify
+- fix the issue of abnormal subtitle retrieval caused by changes to Bilibili API
 
-## Fixes
-- fix firefox bilibili summary (#761)
-- fix Buffer is not defined when using tiny package (#691, https://github.com/josStorer/chatGPTBox/issues/752#issuecomment-2240977750)
-
-## Chores
-- Added Claude 3.5 Sonnet API to available models e7cec334
-- Add gpt-4o-mini for both web and api access (#749)
-- update enforcement rule
+### Chores
+- update adapters support for startpage, kagi, naver, wechat, juejin
+- update dependencies to mitigate security vulnerabilities @PeterDaveHello 
+- update default configs
+- since ChatGPT has relaxed the web API request restrictions, it is no longer necessary to simulate input to retrieve data (#869)
+- update verify-search-engine-configs.mjs
